@@ -2,8 +2,8 @@ from tkinter.constants import E
 import requests
 import time
 from tkinter import messagebox
-dist = 571
-date = '14-06-2021'
+dist = 571                   #Enter District Code (Refer district.csv for District Code)
+date = '14-06-2021'          #Enter the Date
 URL = 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id={}&date={}'.format(
     dist, date)
 
@@ -17,6 +17,7 @@ def findAvailability():
     response_json = result.json()
     data = response_json["sessions"]
     for each in data:
+        #Change ENTER_VACCINE_NAME to the vaccine that you are searching for.
         if((each["available_capacity_dose2"] > 0) & (each["min_age_limit"] == 18) and (each["vaccine"] == "ENTER_VACCINE_NAME")):
             counter += 1
             print(each["name"])
