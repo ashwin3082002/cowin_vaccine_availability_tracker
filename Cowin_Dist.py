@@ -1,7 +1,6 @@
 from tkinter.constants import E
 import requests
 import time
-from playsound import playsound
 from tkinter import messagebox
 dist = 571
 date = '14-06-2021'
@@ -18,7 +17,7 @@ def findAvailability():
     response_json = result.json()
     data = response_json["sessions"]
     for each in data:
-        if((each["available_capacity_dose2"] > 0) & (each["min_age_limit"] == 18) and (each["vaccine"] == 'COVAXIN') and (each["name"]!='Rainbow Childrens Medicare' )):
+        if((each["available_capacity_dose2"] > 0) & (each["min_age_limit"] == 18) and (each["vaccine"] == "ENTER_VACCINE_NAME")):
             counter += 1
             print(each["name"])
             est=each["name"]
